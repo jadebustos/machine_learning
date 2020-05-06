@@ -1,0 +1,6 @@
+---
+
+movidius_debs: ['make', 'gcc']
+movidius_sdk_dir: '~/movidius-sdk'
+
+movidus1_github_repo: 'http://github.com/Movidius/ncsdk'

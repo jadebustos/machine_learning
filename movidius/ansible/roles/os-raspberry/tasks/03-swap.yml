@@ -1,0 +1,10 @@
+---
+
+- name: configure swap file to 2048
+  template:
+    src: dphys-swapfile.j2
+    dest: /etc/dphys-swapfile
+    mode: 0644
+    owner: root
+    group: root
+  become: true

@@ -1,0 +1,12 @@
+---
+
+- name: update all packages
+  apt:
+    name: "*"
+    state: latest
+  become: true
+
+- name: install packages
+  apt:
+    name: "{{ ubuntu_pkgs }}"
+  become: true

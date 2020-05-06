@@ -1,0 +1,12 @@
+---
+
+hostname: 'x240.lab'
+
+uuid: 'a7e531ec-a3f9-4e8e-a0f8-1866c9c34552' # you do not need to change that
+mac: 'E8:2A:EA:30:73:F2'
+bssids: '26:57:60:D5:5C:9B' # mac of your wifi router
+
+ip_address: '192.168.1.211'
+netmask: '24'
+routers: '192.168.1.1'
+dns: '192.168.1.1'

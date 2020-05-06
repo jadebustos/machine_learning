@@ -1,0 +1,20 @@
+- name: configure hostname
+  hostname:
+    name: "{{ hostname }}"
+  become: true
+
+- name: configure static ip
+  template:
+    src: wifi.j2
+    dest: "/etc/NetworkManager/system-connections/{{ ssid }}"
+    owner: root
+    group: root
+    mode: 0600
+  become: true
+
+- name: add /etc/hosts entry
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    line: "{{ ip_address }}   {{ hostname }}"
+  become: true

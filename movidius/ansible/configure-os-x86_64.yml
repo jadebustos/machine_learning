@@ -1,0 +1,9 @@
+- name: configure os (x86_64)
+  hosts: x86_64
+  vars_files:
+    - "group_vars/ubuntu.yml"
+    - "group_vars/network.yml"
+    - "group_vars/x86_64.yml"
+  gather_facts: false
+  roles:
+    - role: os-x86_64

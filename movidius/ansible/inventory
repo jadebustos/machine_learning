@@ -1,0 +1,17 @@
+[raspberry3]
+192.168.1.210 ansible_user=pi
+
+[rsp1movidius]
+192.168.1.212 ansible_user=pi
+
+[rsp2movidius]
+192.168.1.210 ansible_user=pi
+
+[rsp3movidius]
+192.168.1.213 ansible_user=pi
+
+[x86_64]
+192.168.1.211 ansible_user=jadebustos
+
+[x240]
+192.168.1.211 ansible_user=jadebustos

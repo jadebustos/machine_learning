@@ -1,0 +1,11 @@
+---
+
+- name: configure os (raspberry pi)
+  hosts: raspberry3
+  vars_files:
+    - "group_vars/debian.yml"
+    - "group_vars/network.yml"
+    - "group_vars/raspberry.yml"
+  gather_facts: false
+  roles:
+    - role: os-raspberry

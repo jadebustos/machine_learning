@@ -1,0 +1,9 @@
+---
+
+- name: install movidius sdk
+  hosts: all
+  vars_files:
+    - "group_vars/movidius.yml"
+  gather_facts: false
+  roles:
+    - role: movidius-1

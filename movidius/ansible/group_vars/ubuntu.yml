@@ -1,0 +1,3 @@
+---
+
+ubuntu_pkgs: ['mc', 'aptitude', 'git', 'screen']

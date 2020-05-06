@@ -1,0 +1,31 @@
+---
+
+- name: configure hostname
+  hostname:
+    name: "{{ hostname }}"
+  become: true
+
+- name: configure wifi
+  template:
+    src: wpa_supplicant.conf.j2
+    dest: /etc/wpa_supplicant/wpa_supplicant.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: configure static ip
+  template:
+    src: dhcpcd.conf.j2
+    dest: /etc/dhcpcd.conf
+    owner: root
+    group: netdev
+    mode: 0664
+  become: true
+
+- name: add /etc/hosts entry
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    line: "{{ ip_address }}   {{ hostname }}"
+  become: true

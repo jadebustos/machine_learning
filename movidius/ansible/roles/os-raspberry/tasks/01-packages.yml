@@ -1,0 +1,13 @@
+---
+
+- name: update all packages
+  apt:
+    name: "*"
+    state: latest
+  become: true
+
+- name: install packages
+  apt:
+    name: "{{ debian_pkgs }}"
+  become: true
+  

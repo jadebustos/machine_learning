@@ -1,0 +1,18 @@
+---
+
+- name: install software requirements
+  apt:
+    name: "{{ movidius_debs }}"
+    state: latest
+  become: true
+
+- name: create directory to store movidius software
+  file:
+    path: "{{ movidius_sdk_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: clone git repository
+  git:
+    repo: "{{ movidus1_github_repo }}"
+    dest: "{{ movidius_sdk_dir }}"

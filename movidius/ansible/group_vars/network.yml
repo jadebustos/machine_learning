@@ -1,0 +1,6 @@
+---
+
+country: 'ES'
+ssid: 'MOVISTAR_5C92'
+psk: 'A7688CFB671964FCD377'
+key_mgmt: 'WPA-PSK'
