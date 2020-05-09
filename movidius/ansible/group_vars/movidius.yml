@@ -2,6 +2,7 @@
 
 movidius_debs: ['make', 'gcc', 'cmake']
 movidius_sdk_dir: '~/movidius-sdk'
+movidius_user: 'pi'
 
 movidus1_github_repo: 'http://github.com/Movidius/ncsdk'
 

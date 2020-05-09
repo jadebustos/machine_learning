@@ -41,3 +41,10 @@
     - " "
     - "# OpenVino"
     - "source {{ openvino_install_dir}}/bin/setupvars.sh"
+
+- name: add the user to users groups (if not)
+  user:
+    name: "{{ movidius_user }}"
+    groups: 'users'
+    append: yes
+  become: true
