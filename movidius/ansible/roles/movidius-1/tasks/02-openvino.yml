@@ -1,0 +1,43 @@
+---
+
+- name: create directory to store openvino software
+  file:
+    path: "{{ openvino_install_dir }}"
+    state: directory
+    mode: '0755'
+  become: true
+
+- name: create directory to download openvino software
+  file:
+    path: "{{ openvino_download_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: download openvino software
+  get_url:
+    url: "{{ openvino_toolkit }}"
+    dest: "{{ openvino_download_dir }}"
+    mode: '0660'
+    force: yes
+
+- name: extract openvino toolkit
+  command: "tar xf {{ openvino_download_dir }}/{{ openvino_toolkit_filename }} --strip 1 -C {{ openvino_install_dir }}"
+  become: true
+
+- name: configure openvine environment variables script
+  lineinfile:
+    path: "{{ openvino_install_dir }}/bin/setupvars.sh"
+    state: present
+    regexp: '^INSTALLDIR='
+    line: "INSTALLDIR={{ openvino_install_dir }}"
+  become: true
+
+- name: configure openvino environment variables
+  lineinfile:
+    path: ~/.bashrc
+    state: present
+    line: "{{ item }}"
+  with_items:
+    - " "
+    - "# OpenVino"
+    - "source {{ openvino_install_dir}}/bin/setupvars.sh"

@@ -1,6 +1,12 @@
 ---
 
-movidius_debs: ['make', 'gcc']
+movidius_debs: ['make', 'gcc', 'cmake']
 movidius_sdk_dir: '~/movidius-sdk'
 
 movidus1_github_repo: 'http://github.com/Movidius/ncsdk'
+
+# openvino
+openvino_toolkit: 'https://download.01.org/openvinotoolkit/2018_R5/packages/l_openvino_toolkit_ie_p_2018.5.445.tgz'
+openvino_toolkit_filename: 'l_openvino_toolkit_ie_p_2018.5.445.tgz'
+openvino_download_dir: '/home/pi/Downloads'
+openvino_install_dir: '/opt/intel/openvino'
