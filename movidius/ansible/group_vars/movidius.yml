@@ -1,6 +1,6 @@
 ---
 
-movidius_debs: ['make', 'gcc', 'cmake']
+movidius_debs: ['make', 'gcc', 'cmake', libcblas-dev', 'libhdf5-dev', 'libhdf5-serial-dev', 'libatlas-base-dev', 'libjasper-dev', 'libqtgui4', 'libqt4-test']
 movidius_sdk_dir: '~/movidius-sdk'
 movidius_user: 'pi'
 
@@ -11,3 +11,9 @@ openvino_toolkit: 'https://download.01.org/openvinotoolkit/2018_R5/packages/l_op
 openvino_toolkit_filename: 'l_openvino_toolkit_ie_p_2018.5.445.tgz'
 openvino_download_dir: '/home/pi/Downloads'
 openvino_install_dir: '/opt/intel/openvino'
+openvino_build_dir: '~/openvino/build'
+openvino_pretrained_dir: '~/openvino/pretrained'
+pretrained_face_model: 'https://download.01.org/openvinotoolkit/2018_R5/open_model_zoo/face-detection-adas-0001/FP16/face-detection-adas-0001.bin'
+pretrained_topology: 'https://download.01.org/openvinotoolkit/2018_R5/open_model_zoo/face-detection-adas-0001/FP16/face-detection-adas-0001.xml'
+images_dir: '~/openvino/images'
+test_image: 'GroupPhoto-1071x1260.jpg'

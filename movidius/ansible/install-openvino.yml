@@ -1,0 +1,9 @@
+---
+
+- name: install openvino toolkit
+  hosts: all
+  vars_files:
+    - "group_vars/movidius.yml"
+  gather_facts: false
+  roles:
+    - role: openvino

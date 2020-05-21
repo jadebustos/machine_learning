@@ -1,0 +1,33 @@
+---
+
+- name: create directories to build and test openvino
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  with_items:
+    - "{{ openvino_build_dir }}"
+    - "{{ openvino_pretrained_dir }}"
+    - "{{ images_dir }}"
+
+- name: download pretrained model to test
+  get_url:
+    url: "{{ item }}"
+    dest: "{{ openvino_pretrained_dir }}"
+    validate_certs: no
+    mode: '0666'
+    force: yes
+  with_items:
+    - "{{ pretrained_face_model }}"
+    - "{{ pretrained_topology }}"
+
+- name: copy example images
+  file:
+    src: "{{ test_image }}"
+    dest: "{{ images_dir }}"
+
+- name: copy python stcript to test opencv
+  template:
+    src: openvino_fd_myriad.py.j2
+    dest: "{{ openvino_pretrained_dir }}/openvino_fd_myriad.py"
+    mode: 0755
