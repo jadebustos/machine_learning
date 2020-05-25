@@ -1,0 +1,3 @@
+---
+
+cuda_debs: ['make', 'cmake', 'gcc', 'cuda', 'libnvcuvid1', 'python-pycuda', 'python3-pycuda']

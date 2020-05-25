@@ -1,0 +1,11 @@
+---
+
+- name: install kernel headers
+  shell: apt install linux-headers-$(uname -r)
+  become: true
+
+- name: install cuda software
+  apt:
+    name: "{{ cuda_debs }}"
+    state: latest
+  become: true

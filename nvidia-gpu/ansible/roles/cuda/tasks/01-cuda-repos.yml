@@ -1,0 +1,22 @@
+---
+
+- name: download cuda deb
+  get_url:
+    url: https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64-deb
+    dest: /tmp
+    mode: '0644'
+  become: true
+
+- name: install cuda deb
+  shell: '/usr/bin/dpkg -i /tmp/cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64-deb'
+  become: true
+
+- name: install cuda repo key
+  apt_key:
+    file: /var/cuda-repo-8-0-local/7fa2af80.pub
+    state: present
+  become: true
+
+- name: apt update
+  shell: '/bin/chmod 1777 /tmp ; /usr/bin/apt update'
+  become: true

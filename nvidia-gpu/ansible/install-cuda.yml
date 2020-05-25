@@ -1,0 +1,9 @@
+---
+
+- name: install cuda on ubuntu 16.04
+  hosts: all
+  vars_files:
+    - "group_vars/cuda.yml"
+  gather_facts: false
+  roles:
+    - role: cuda
