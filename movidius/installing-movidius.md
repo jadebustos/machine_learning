@@ -12,10 +12,10 @@ The following are the supported Operating Systems:
 Clone the SDK repository:
 
 ```
-pi@rsp3movidius:~/movidius-sdk $ git clone http://github.com/Movidius/ncsdk
+pi@rsp3movidius:~/movidius/movidius-sdk $ git clone http://github.com/Movidius/ncsdk
 ```
 
-So the SDK will be at **/home/pi/movidius-sdk/ncsdk**.
+So the SDK will be at **/home/pi/movidius/movidius-sdk/ncsdk**.
 
 To install it:
 
@@ -32,3 +32,5 @@ pi@rsp3movidius:~/movidius-sdk/ncsdk $
 ```
 
 > File **movidius-installation.log** will store the log installation.
+
+> If you want to install it in a python virtualenv add **USE_VIRTUALENV=yes** to **ncsdk.conf** file.

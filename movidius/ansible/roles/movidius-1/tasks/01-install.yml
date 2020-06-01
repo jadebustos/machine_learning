@@ -12,7 +12,13 @@
     state: directory
     mode: '0755'
 
-#- name: clone git repository
-#  git:
-#    repo: "{{ movidus1_github_repo }}"
-#    dest: "{{ movidius_sdk_dir }}"
+- name: clone git repository
+  git:
+    repo: "{{ movidus1_github_repo }}"
+    dest: "{{ movidius_sdk_dir }}"
+
+- name: configure virtual env
+  lineinfile:
+    path: "{{ movidius_sdk_dir }}/ncsdk.conf"
+    line: "USE_VIRTUALENV=yes"
+    state: present
