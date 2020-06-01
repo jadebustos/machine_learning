@@ -1,5 +1,11 @@
 # Installing OpenVino toolkit
 
+## Intel
+
+> https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_linux.html
+
+## Raspberry
+
 To install the OpenVino toolkit you should modify **group_vars/movidius.yml** to fit your environment.
 
 > [https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_raspbian.html](https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_raspbian.html)
@@ -52,7 +58,7 @@ pi@rsp3b-buster1:~ $
 
 Now you can plug the Intel Movidius Neural Compute Stick.
 
-## Build and Run Object Detection Sample
+### Build and Run Object Detection Sample
 
 ```
 pi@rsp1movidius:~ $ mkdir -p openvino/build

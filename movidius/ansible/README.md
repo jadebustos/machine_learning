@@ -8,14 +8,24 @@ These playbooks have been developed to ease **Intel Movidius Nerual Compute Stic
 ## Requirements
 
 + Configure Wifi.
-+ Enable ssh service.
++ You need to install the **ssh** server:
+
+  ```
+  # apt install openssh-server
+  ...
+  # systemctl enable ssh
+  # systemctl start ssh
+  #
+  ```
 + Copy your public key to the **pi** user on **raspberry** and to your user on a **x86_64** computer.
 
-```
-$ ssh-copy-id -i ~/.ssh/id_rsa.pub pi@hostname
-```
+  ```
+  $ ssh-copy-id -i ~/.ssh/id_rsa.pub pi@hostname
+  ```
 
 ## Installation
 
 + [Raspberry pi 3 installation](install-raspberry.md)
 + [x86_64 computer installation](install-x86_64.md)
++ [Install Intel Movidius SDK (NCSDK)](installing-movidius.md)
++ [Install Intel OpenVINO tookit](installing-openvino.md)

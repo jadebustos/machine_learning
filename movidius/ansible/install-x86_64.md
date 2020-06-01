@@ -4,7 +4,7 @@ Install Ubuntu 16.04 Desktop on a x86_64 computer.
 
 ## Configuration and deployment 
 
-+ Modify **inventory** to configure your raspberry DHCP assigned IP in **x86_64**.
++ Modify **inventory** to configure your DHCP assigned IP in **x86_64**.
 
    ```
    $ cat inventory

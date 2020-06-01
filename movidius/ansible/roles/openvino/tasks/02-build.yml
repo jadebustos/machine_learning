@@ -22,7 +22,7 @@
     - "{{ pretrained_topology }}"
 
 - name: copy example images
-  file:
+  copy:
     src: "{{ test_image }}"
     dest: "{{ images_dir }}"
 

@@ -34,3 +34,16 @@ pi@rsp3movidius:~/movidius-sdk/ncsdk $
 > File **movidius-installation.log** will store the log installation.
 
 > If you want to install it in a python virtualenv add **USE_VIRTUALENV=yes** to **ncsdk.conf** file.
+
+## Build and run examples
+
+You need to install [OpenVINO toolkit](installing-openvino.md) before continuing.
+
+Clone the example repository and build the examples:
+
+```
+pi@rsp3movidius:~/movidius $ git clone https://github.com/movidius/ncappzoo.git
+pi@rsp3movidius:~/movidius $ cd ncappzoo
+pi@rsp3movidius:~/movidius $ make 
+```
+

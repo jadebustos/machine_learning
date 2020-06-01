@@ -5,7 +5,7 @@
     path: "{{ openvino_install_dir }}"
     state: directory
     mode: '0755'
-  become: true
+  become: yes
 
 - name: create directory to download openvino software
   file:
@@ -22,7 +22,7 @@
 
 - name: extract openvino toolkit
   command: "tar xf {{ openvino_download_dir }}/{{ openvino_toolkit_filename }} --strip 1 -C {{ openvino_install_dir }}"
-  become: true
+  become: yes
 
 - name: configure openvine environment variables script
   lineinfile:
@@ -30,7 +30,7 @@
     state: present
     regexp: '^INSTALLDIR='
     line: "INSTALLDIR={{ openvino_install_dir }}"
-  become: true
+  become: yes
 
 - name: configure openvino environment variables
   lineinfile:
@@ -47,4 +47,4 @@
     name: "{{ movidius_user }}"
     groups: 'users'
     append: yes
-  become: true
+  become: yes
