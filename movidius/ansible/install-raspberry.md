@@ -49,3 +49,4 @@ After that your raspberry pi has a static ip configured and you should add the f
 ## Install Intel Movidius SDK
 
 [Install Intel Movidius SDK](install-movidius-sdk.md)
+[Install Intel OpenVINO Toolkit](install-openvino.md)

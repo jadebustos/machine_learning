@@ -39,6 +39,7 @@ Script started, file is install.log
 $ make install
 ....
 $ exit
+Script done, file is install.log
 $
 ```
 
@@ -46,15 +47,26 @@ and the Movidius SDK will be installed. The installation log wil be stored in **
 
 > NOTE: In Debian Stretch (Raspbian) TensorFlow is not supported so it will not be installed.
 
-To install the SDK examples:
+To install the SDK examples (only in x86_64 it requires TensorFlow to be installed):
 
 ```
 $ script install-examples.log
 $ make examples
+./install-opencv.sh
+
+************************ Please confirm *******************************
+ Installing OpenCV on Raspberry Pi may take a long time. 
+ You may skip this part of the installation in which case some examples 
+ may not work without modifications but the rest of the SDK will still 
+ be functional. Select n to skip OpenCV installation or y to install it.
+ Continue installing OpenCV (y/n) ? n
 ...
 $ exit
+Script done, file is install-examples.log
 $
 ```
+
+> Do not install OpenCV, it will be installed with OpenVINO.
 
 ## Links
 
