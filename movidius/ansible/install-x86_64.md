@@ -58,3 +58,7 @@ After that your computer will have a static ip configured and you should add the
 ```
 
 > **x240** is the name you configured in **group_vars/x86_64.yml** and the ip is the ip you configured in the above file. **jadebustos** is your username in the x86_64 computer.
+
+## Install Intel Movidius SDK
+
+[Install Intel Movidius SDK](install-movidius-sdk.md)

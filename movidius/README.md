@@ -1,7 +1,7 @@
 # Movidius installation
 
-* [Installing Movidius 1 SDK](installing-movidius.md)
-* [Installing Movidius 1 SDK in Debian Buster (not Supported)](installing-movidius-buster.md)
+* [Installing Movidius 1 on x86_64](ansible/install-x86_64.md)
+* [Installing Movidius 1 on Raspbian (Stretch)](ansible/install-raspberry.md)
 
 ## Requirements
 

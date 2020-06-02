@@ -11,7 +11,7 @@ $ cat inventory
 [raspberry3]
 192.168.1.59 ansible_user=pi
 
-[rspmovidius1]
+[rsp1movidius]
 192.168.1.210 ansible_user=pi
 
 [x86_64]
@@ -44,7 +44,7 @@ $
 
 and the Movidius SDK will be installed. The installation log wil be stored in **install.log**.
 
-> NOTE: In Debian Stretch TensorFlow is not supported so it will not be installed.
+> NOTE: In Debian Stretch (Raspbian) TensorFlow is not supported so it will not be installed.
 
 To install the SDK examples:
 
@@ -58,5 +58,5 @@ $
 
 ## Links
 
-+ [Basic installation and configuration | Intel Movidius Neural Compute Stick SDK Documentation](https://movidius.github.io/ncsdk/install.html)
-+ [How to setup the Intel Movidius Neural Compute Stick](https://www.freecodecamp.org/news/how-to-set-up-the-intel-movidius-neural-compute-stick-b9db16d493a7/)
++ [Basic installation and configuration | Intel Movidius Neural Compute Stick SDK Documentation](https://movidius.github.io/ncsdk/install.html).
++ [How to setup the Intel Movidius Neural Compute Stick](https://www.freecodecamp.org/news/how-to-set-up-the-intel-movidius-neural-compute-stick-b9db16d493a7/).
