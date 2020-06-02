@@ -23,10 +23,10 @@ $
 ```
 
 ```
-$ ansible-playbook -i inventory -l movidius1 install-movidius-sdk.yml
+$ ansible-playbook -i inventory -l rsp1movidius install-movidius-sdk.yml
 ```
 
-> Where **movidius1** is the group in the ansible inventory in which you have included your raspberry pi.
+> Where **rsp1movidius** is the group in the ansible inventory in which you have included your raspberry pi.
 
 The movidius SDK will be downloaded.
 
@@ -46,6 +46,17 @@ and the Movidius SDK will be installed. The installation log wil be stored in **
 
 > NOTE: In Debian Stretch TensorFlow is not supported so it will not be installed.
 
+To install the SDK examples:
+
+```
+$ script install-examples.log
+$ make examples
+...
+$ exit
+$
+```
+
 ## Links
 
 + [Basic installation and configuration | Intel Movidius Neural Compute Stick SDK Documentation](https://movidius.github.io/ncsdk/install.html)
++ [How to setup the Intel Movidius Neural Compute Stick](https://www.freecodecamp.org/news/how-to-set-up-the-intel-movidius-neural-compute-stick-b9db16d493a7/)

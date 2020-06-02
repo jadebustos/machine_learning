@@ -40,8 +40,12 @@ The raspberry pi will be rebooted.
 After that your raspberry pi has a static ip configured and you should add the following to the **inventory** file:
 
 ```
-[rspmovidius1]
-192.168.1.210 ansible_user=pi
+[rsp3movidius]
+192.168.1.213 ansible_user=pi
 ```
 
-> **movidius1** is the name you configured in **group_vars/raspberry.yml** and the ip is the ip you configured in the above file.
+> **rsp3movidius** is the name you configured in **group_vars/raspberry.yml** and the ip is the ip you configured in the above file.
+
+## Install Intel Movidius SDK
+
+[Install Intel Movidius SDK](install-movidius-sdk.md)
