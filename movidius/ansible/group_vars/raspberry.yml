@@ -1,11 +1,11 @@
 ---
 
-hostname: 'rsp1movidius.lab'
+hostname: 'rsp2movidius.lab'
 
 swap_size: 2048
 
 interface: 'wlan0'
-ip_address: '192.168.1.210'
+ip_address: '192.168.1.212'
 netmask: '24'
 routers: '192.168.1.1'
 dns: '192.168.1.1'

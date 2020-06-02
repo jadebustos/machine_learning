@@ -1,8 +1,8 @@
 [raspberry3]
-192.168.1.210 ansible_user=pi
+192.168.1.212 ansible_user=pi
 
-[stretch]
-192.168.1.210 ansible_user=pi
+[rsp2movidius]
+192.168.1.212 ansible_user=pi
 
 [buster]
 192.168.1.213 ansible_user=pi

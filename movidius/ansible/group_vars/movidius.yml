@@ -3,14 +3,16 @@
 #movidius_debs: ['make', 'gcc', 'cmake', 'libcblas-dev', 'libhdf5-dev', 'libhdf5-serial-dev', 'libatlas-base-dev', 'libjasper-dev', 'libqtgui4', 'libqt4-test']
 movidius_debs: ['make', 'gcc', 'cmake', 'libhdf5-dev', 'libhdf5-serial-dev', 'libatlas-base-dev', 'libjasper-dev', 'libqtgui4', 'libqt4-test', 'python-sklearn', 'python-skimage', 'python3-sklearn', 'python3-skimage']
 movidius_sdk_dir: '~/movidius/movidius-sdk'
+movidius_examples_dir: '~/movidius/ncappzoo'
 movidius_user: 'pi'
 
-movidus1_github_repo: 'http://github.com/Movidius/ncsdk'
+movidius_github_repo: 'http://github.com/Movidius/ncsdk'
+movidius_examples_github_repo: 'https://github.com/movidius/ncappzoo.git'
 
 # openvino
 openvino_toolkit: 'https://download.01.org/openvinotoolkit/2018_R5/packages/l_openvino_toolkit_ie_p_2018.5.445.tgz'
 openvino_toolkit_filename: 'l_openvino_toolkit_ie_p_2018.5.445.tgz'
-openvino_download_dir: '/home/jadebustos/Downloads'
+openvino_download_dir: '/home/pi/Downloads'
 openvino_install_dir: '/opt/intel/openvino'
 openvino_build_dir: '~/movidius/openvino/build'
 openvino_pretrained_dir: '~/movidius/openvino/pretrained'

@@ -33,10 +33,19 @@ The movidius SDK will be downloaded.
 After that log in the system:
 
 ```
-$ cd movidius-sdk
+$ cd movidius/movidius-sdk
+$ script install.log
+Script started, file is install.log
 $ make install
+....
+$ exit
+$
 ```
 
-and the Movidius SDK will be installed.
+and the Movidius SDK will be installed. The installation log wil be stored in **install.log**.
 
 > NOTE: In Debian Stretch TensorFlow is not supported so it will not be installed.
+
+## Links
+
++ [Basic installation and configuration | Intel Movidius Neural Compute Stick SDK Documentation](https://movidius.github.io/ncsdk/install.html)

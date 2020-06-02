@@ -1,6 +1,6 @@
 # Raspberry installation
 
-Install raspbian (Debian Stretch) in your raspberry pi 3.
+Install raspbian (Debian Stretch) on your raspberry pi 3.
 
 ## Configuration and deployment 
 
