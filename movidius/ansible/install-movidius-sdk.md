@@ -2,7 +2,7 @@
 
 To install the Movidius 1 SDK you should modify **group_vars/movidius.yml** to fit your environment.
 
-This playbook will install the Movidius SDK on Raspberry pi 3 (Debian Stretch) or in a x86_64 computer (Ubuntu 16.04).
+This playbook will install the Movidius SDK on Raspberry pi 3 (Debian Buster).
 
 You will have to have an entry in the **inventory** file for the system where you want to install:
 

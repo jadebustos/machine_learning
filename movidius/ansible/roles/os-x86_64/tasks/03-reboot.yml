@@ -2,4 +2,5 @@
 
 - name: reboot system
   reboot:
+  ignore_errors: yes
   become: true
