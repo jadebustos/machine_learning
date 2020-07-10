@@ -1,0 +1,35 @@
+- layers:
+  - filters:
+    - 5
+    - 10
+    input:
+    - 32
+    - 32
+    - 3
+    output_volume:
+    - 32.0
+    - 32.0
+    - 10
+    padding: 2
+    parameters:
+      filter: 76
+      total: 760
+    stride: 1
+    type: Conv2D
+  - filters:
+    - 5
+    input:
+    - 32
+    - 32
+    - 3
+    output_volume:
+    - 28.0
+    - 28.0
+    - 3
+    stride: 1
+    type: MaxPooling2D
+  - input: 10
+    neurons: 15
+    parameters: 165
+    type: Dense
+  name: my awesome cnn

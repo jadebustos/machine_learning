@@ -1,0 +1,25 @@
+---
+
+- name: 'my awesome cnn'
+  layers:
+    - type: 'Conv2D'
+      input:
+        - 32  # width
+        - 32  # height
+        - 3   # deepth
+      filters: 
+        - 5  # size
+        - 10 # number
+      stride: 1
+      padding: 2
+    - type: 'MaxPooling2D'
+      input:
+        - 32  # width
+        - 32  # height
+        - 3   # deepth
+      filters:
+        - 5  # size
+      stride: 1
+    - type: 'Dense'
+      input: 10   # previous layer neurons
+      neurons: 15 # neurons in fully connected layer
