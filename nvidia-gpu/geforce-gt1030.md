@@ -2,85 +2,91 @@
 
 + [Gigabyte GT 1030 Low Profile D4 2G Specs](https://www.cnet.com/products/gigabyte-gt-1030-low-profile-d4-2g-graphics-card-gf-gt-1030-2-gb/)
 + [GIGABYTE GT 1030 Low Profile](https://www.techpowerup.com/gpu-specs/gigabyte-gt-1030-low-profile.b4616)
-+ [CUDA Toolkit 8.0 - Feb 2017](https://developer.nvidia.com/cuda-80-ga2-download-archive)
 
 # Installing Cuda on Ubuntu 16.04
+
+Some useful links:
+
++ [CUDA toolkit archive](https://developer.nvidia.com/cuda-toolkit-archive)
++ [CUDA Geforce drivers](https://www.nvidia.com/en-us/geforce/drivers/)
++ [CUDA 8.0 Download](https://developer.nvidia.com/cuda-80-ga2-download-archive)
++ [NVIDIA 415 Driver info](https://www.nvidia.com/Download/driverResults.aspx/140282/en-us) 
 
 Install the CUDA toolkit without the drivers:
 
 ```
-root@lezo:~# wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_375.26_linux-run
-root@lezo:~# chmod +x cuda_8.0.61_375.26_linux-run
-root@lezo:~# ./cuda_8.0.61_375.26_linux-run --silent --toolkit --samples
-root@lezo:~#
+[root@gpu ~]# wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_375.26_linux-run
+[root@gpu ~]# chmod +x cuda_8.0.61_375.26_linux-run
+[root@gpu ~]# ./cuda_8.0.61_375.26_linux-run --silent --toolkit --samples
+[root@gpu ~]#
 ```
 
 Install drivers:
 
 ```
-root@lezo:~# add-apt-repository -y ppa:graphics-drivers/ppa
-root@lezo:~# apt update
-root@lezo:~# apt install nvidia-418 nvidia-418-dev libcuda1-418 nvidia-opencl-icd-418
-root@lezo:~#
+[root@gpu ~]# add-apt-repository -y ppa:graphics-drivers/ppa
+[root@gpu ~]# apt update
+[root@gpu ~]# apt install nvidia-415 nvidia-415-dev libcuda1-415
+[root@gpu ~]#
 ```
 
 Check that all is working properly:
 
 ```
-root@lezo:~# nvidia-smi 
-Mon May 25 22:28:07 2020       
+[root@gpu ~]# nvidia-smi 
+Sun Aug 23 23:13:53 2020       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 418.56       Driver Version: 418.56       CUDA Version: 10.1     |
+| NVIDIA-SMI 415.27       Driver Version: 415.27       CUDA Version: 10.0     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |===============================+======================+======================|
-|   0  GeForce GT 1030     Off  | 00000000:03:00.0 Off |                  N/A |
-|  0%   42C    P0    N/A /  30W |    415MiB /  2001MiB |      0%      Default |
+|   0  GeForce GT 1030     Off  | 00000000:01:00.0  On |                  N/A |
+|  0%   36C    P8    N/A /  30W |     61MiB /  1999MiB |      0%      Default |
 +-------------------------------+----------------------+----------------------+
                                                                                
 +-----------------------------------------------------------------------------+
 | Processes:                                                       GPU Memory |
 |  GPU       PID   Type   Process name                             Usage      |
 |=============================================================================|
-|    0      8574      C   /usr/bin/python3                             413MiB |
+|    0      1013      G   /usr/lib/xorg/Xorg                            59MiB |
 +-----------------------------------------------------------------------------+
-root@lezo:~# 
+[root@gpu ~]# 
 ```
 
 Apply cuda patch:
 
 ```
-root@lezo:~# wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/patches/2/cuda_8.0.61.2_linux-run
-root@lezo:~# chmod +x cuda_8.0.61.2_linux-run
-root@lezo:~# ./cuda_8.0.61.2_linux-run 
-root@lezo:~# nvidia-smi
-Mon May 25 22:31:06 2020       
+[root@gpu ~]# wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/patches/2/cuda_8.0.61.2_linux-run
+[root@gpu ~]# chmod +x cuda_8.0.61.2_linux-run
+[root@gpu ~]# ./cuda_8.0.61.2_linux-run 
+[root@gpu ~]# nvidia-smi
+Sun Aug 23 23:23:10 2020       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 418.56       Driver Version: 418.56       CUDA Version: 10.1     |
+| NVIDIA-SMI 415.27       Driver Version: 415.27       CUDA Version: 10.0     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |===============================+======================+======================|
-|   0  GeForce GT 1030     Off  | 00000000:03:00.0 Off |                  N/A |
-|  0%   42C    P0    N/A /  30W |    415MiB /  2001MiB |      0%      Default |
+|   0  GeForce GT 1030     Off  | 00000000:01:00.0  On |                  N/A |
+|  0%   36C    P8    N/A /  30W |     61MiB /  1999MiB |      0%      Default |
 +-------------------------------+----------------------+----------------------+
                                                                                
 +-----------------------------------------------------------------------------+
 | Processes:                                                       GPU Memory |
 |  GPU       PID   Type   Process name                             Usage      |
 |=============================================================================|
-|    0      8574      C   /usr/bin/python3                             413MiB |
+|    0      1013      G   /usr/lib/xorg/Xorg                            59MiB |
 +-----------------------------------------------------------------------------+
-root@lezo:~#
+[root@gpu ~]#
 ```
 
 Let's check the device:
 
 ```
-root@lezo:~# cd NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery
-root@lezo:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery# make
-root@lezo:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery# ./deviceQuery
+[root@gpu ~]# cd NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery
+[root@gpu deviceQuery]# make
+[root@gpu deviceQuery]# ./deviceQuery
 ./deviceQuery Starting...
 
  CUDA Device Query (Runtime API) version (CUDART static linking)
@@ -88,9 +94,9 @@ root@lezo:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery# ./deviceQuery
 Detected 1 CUDA Capable device(s)
 
 Device 0: "GeForce GT 1030"
-  CUDA Driver Version / Runtime Version          10.1 / 8.0
+  CUDA Driver Version / Runtime Version          10.0 / 8.0
   CUDA Capability Major/Minor version number:    6.1
-  Total amount of global memory:                 2001 MBytes (2098528256 bytes)
+  Total amount of global memory:                 1999 MBytes (2096431104 bytes)
   ( 3) Multiprocessors, (128) CUDA Cores/MP:     384 CUDA Cores
   GPU Max Clock rate:                            1468 MHz (1.47 GHz)
   Memory Clock rate:                             3004 Mhz
@@ -110,40 +116,183 @@ Device 0: "GeForce GT 1030"
   Maximum memory pitch:                          2147483647 bytes
   Texture alignment:                             512 bytes
   Concurrent copy and kernel execution:          Yes with 2 copy engine(s)
-  Run time limit on kernels:                     No
+  Run time limit on kernels:                     Yes
   Integrated GPU sharing Host Memory:            No
   Support host page-locked memory mapping:       Yes
   Alignment requirement for Surfaces:            Yes
   Device has ECC support:                        Disabled
   Device supports Unified Addressing (UVA):      Yes
-  Device PCI Domain ID / Bus ID / location ID:   0 / 3 / 0
+  Device PCI Domain ID / Bus ID / location ID:   0 / 1 / 0
   Compute Mode:
      < Default (multiple host threads can use ::cudaSetDevice() with device simultaneously) >
 
-deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 10.1, CUDA Runtime Version = 8.0, NumDevs = 1, Device0 = GeForce GT 1030
+deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 10.0, CUDA Runtime Version = 8.0, NumDevs = 1, Device0 = GeForce GT 1030
 Result = PASS
-root@lezo:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery# 
+[root@gpu deviceQuery]# 
 ```
 
 Add the following to your **.bashrc** or **.bash_profile**:
 
 ```
-PATH=$PATH:/usr/local/cuda-8.0/bin
+export PATH="$PATH:/usr/local/cuda-8.0/bin"
+export LD_LIBRARY_PATH="/usr/local/cuda-8.0/lib64"
 ```
 
 > Based on [Using the nVidia GT 1030 for CUDA workloads on Ubuntu 16.04](https://medium.com/@samnco/using-the-nvidia-gt-1030-for-cuda-workloads-on-ubuntu-16-04-4eee72d56791)
+
+## Install a kernel which can load the nvidia driver
+
+You can see what kernels can you install:
+
+```
+[root@gpu ~]# dpkg-query -L nvidia-415 | grep patch
+/usr/lib/nvidia-415/libGLdispatch.so.0
+/usr/lib32/nvidia-415/libGLdispatch.so.0
+/usr/src/nvidia-415-415.27/patches
+/usr/src/nvidia-415-415.27/patches/allow_sublevel_greater_than_5.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_3.0.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_3.10.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_3.11.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_3.13.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_3.14.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_3.18.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_3.6.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_3.8.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.10.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.14.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.16.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.19.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.20.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.3.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.6.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.7.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.7_amd64_only.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.8.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.9.patch
+/usr/src/nvidia-415-415.27/patches/buildfix_kernel_4.9_amd64_only.patch
+/usr/src/nvidia-415-415.27/patches/make-use-of-the-new-uapi-framework.patch
+/usr/src/nvidia-415-415.27/patches/register-VT-switch-requirements.patch
+/usr/src/nvidia-415-415.27/patches/replace-VM_RESERVED-with-VM_DONTEXPAND-and-VM_DONTDU.patch
+[root@gpu ~]#
+```
+
+So I have installed a 4.10 kernel and made it the defautl boot kernel:
+
+```
+[root@gpu ~]# uname -r
+4.10.0-35-generic
+[root@gpu ~]#
+```
 
 ## Troubleshouting
 
 Verify that the nvidia-settings package matches your driver version:
 
 ```
-root@lezo:~# dpkg -l | grep nvidia-settings
+[root@gpu ~]# dpkg -l | grep nvidia-settings
 ii  nvidia-settings                                   418.56-0ubuntu0~gpu16.04.1                      amd64        Tool for configuring the NVIDIA graphics driver
-root@lezo:~# 
+[root@gpu ~]# 
 ```
 
-# Installing python3 and jupyter notebook on Ubuntu 16.04
+# Installing cuDNN
+
+You will need to download it from [NVIDIA](https://developer.nvidia.com/rdp/cudnn-archive). You will need to download the **cuDNN 6.0 for CUDA 8.0**:
+
+* **libcudnn6_6.0.21-1+cuda8.0_amd64.deb**
+* **libcudnn6-dev_6.0.21-1+cuda8.0_amd64.deb**
+
+and install them:
+
+```
+[root@gpu ~]# dpkg -i libcudnn6_6.0.21-1+cuda8.0_amd64.deb libcudnn6-dev_6.0.21-1+cuda8.0_amd64.deb
+``` 
+
+# Install Tensorflow 1 with GPU support
+
+You can check what [Tensorflow version works with cuda 8.0](https://www.tensorflow.org/install/source#tested_source_configurations):
+
++ **CUDA version**: 8.0
++ **cuDNN version**: 6.0
++ **Python version**: 2.7, 3.3 to 3.6
++ **Tensorflow version**: 1.4.1
+
+To install python 3.6:
+
+```
+[root@gpu ~]# add-apt-repository ppa:deadsnakes/ppa
+[root@gpu ~]# apt-get update
+[root@gpu ~]# apt-get install python3.6 python3.6-dev swig libclblas-dev
+[root@gpu ~]# 
+```
+
+> http://sixthdoor.com/deep-learning-setup-tensorflow-gpu-1-4-on-ubuntu-16-04/
+
+Install tensorflow and keras:
+
+```
+[root@gpu ~]# python3.6 -m pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.4.1-cp36-cp36m-linux_x86_64.whl 
+[root@gpu ~]# python3.6 -m pip install pyopencl
+[root@gpu ~]# python3.6 -m pip install pyclblas
+[root@gpu ~]# python3.6 -m pip install keras
+[root@gpu ~]# 
+```
+
+Add the following lines to your **.bashrc**:
+
+```
+alias python='/usr/bin/python3.6'
+alias pip='/usr/bin/pip3'
+```
+
+Start a new shell to check that python 3.6 is your default python version:
+
+```
+[jadebustos@gpu ~]$ python --version
+Python 3.6.12
+[jadebustos@gpu ~]$ 
+```
+
+In this way we do not change the default system-wide python version.
+
+To check if tensorflow is working:
+
+```
+[jadebustos@gpu ~]$ cat tensorflow-check.py 
+#/usr/bin/python3.6
+
+import tensorflow as tf
+
+hello = tf.constant('Hello, TensorFlow!')
+sess = tf.Session()
+print(sess.run(hello))
+[jadebustos@gpu ~]$ python -W ignore tensorflow-check.py 
+2020-08-24 00:12:00.932879: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2020-08-24 00:12:01.004238: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-08-24 00:12:01.004528: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+name: GeForce GT 1030 major: 6 minor: 1 memoryClockRate(GHz): 1.468
+pciBusID: 0000:01:00.0
+totalMemory: 1.95GiB freeMemory: 1.85GiB
+2020-08-24 00:12:01.004543: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GT 1030, pci bus id: 0000:01:00.0, compute capability: 6.1)
+b'Hello, TensorFlow!'
+[jadebustos@gpu ~]$
+```
+
+> It is working but we have some warnings ...
+
+
+
+
+
+# OLD
+
+
+
+
+
+
+
+
+## Installing python3 and jupyter notebook on Ubuntu 16.04
 
 ```
 root@lezo:~# apt install software-properties-common
@@ -166,7 +315,7 @@ root@lezo:~#
 
 > Based on [Installing the Latest Python 3.7 on Ubuntu 16.04 | 18.04](https://websiteforstudents.com/installing-the-latest-python-3-7-on-ubuntu-16-04-18-04/)
 
-## Check GPU can be used from python
+### Check GPU can be used from python
 
 To check that GPU can be used from python:
 
